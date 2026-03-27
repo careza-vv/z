@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My love</title>
+
+<style>
+body{
+    background:#fff0f5;
+    font-family: Georgia, serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    text-align:center;
+}
+
+.container{
+    max-width:600px;
+    padding:20px;
+}
+
+.top-image{
+    width:200px;
+    margin-bottom:20px;
+}
+
+#text{
+    font-size:18px;
+    line-height:1.8;
+    white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<img src="63a2da455fe9183d07db9d79308cbefc.jpg" class="top-image">
+<div id="text"></div>
+</div>
+
+<!-- hidden youtube player -->
+<iframe id="music" width="0" height="0"
+src="https://www.youtube.com/embed/1I7vPbthv0M?enablejsapi=1&loop=1&playlist=1I7vPbthv0M"
+frameborder="0" allow="autoplay">
+</iframe>
+
+<script>
+const message = `Thank you for loving me every single day. Every little thing you do, every kind gesture, makes me feel special and safe. I don’t always find the right words to tell you how much you mean to me, but I want you to know: your love lights up my life.
+No matter the hard days or the challenges we face, you always choose to stay by my side and support me. That makes me feel so lucky to have you. I promise to choose you too, to care for you, and to be there with you through everything, because nothing matters more to me than us.
+You are my joy, my peace, and my strength. Thank you for being you and for making me feel loved in a way I never imagined. I will always keep you in my heart and love you more every single day, Zachary.`;
+
+let i = 0;
+let started = false;
+
+function type(){
+    if(i < message.length){
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 28);
+    }
+}
+
+function start(){
+    if(!started){
+        started = true;
+        document.getElementById("music").src += "&autoplay=1";
+        type();
+    }
+}
+
+document.body.addEventListener("click", start);
+</script>
+
+</body>
+</html>
