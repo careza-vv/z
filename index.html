@@ -9,24 +9,29 @@ body{
     background:#fff0f5;
     font-family: Georgia, serif;
     margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     text-align:center;
 }
 
 /* FIRST PAGE */
-.cover{
+#cover{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     font-size:30px;
     cursor:pointer;
 }
 
 /* SECOND PAGE */
 .container{
-    max-width:600px;
-    padding:20px;
     display:none;
+    max-width:600px;
+    margin:0 auto;
+    padding-top:80px;
 }
 
 .top-image{
@@ -47,7 +52,7 @@ body{
 <body>
 
 <!-- FIRST PAGE -->
-<div id="cover" class="cover" onclick="openLetter()">
+<div id="cover" onclick="openLetter()">
 Amor mío, Zachary
 </div>
 
@@ -91,13 +96,4 @@ function openLetter(){
 
 function changeImage(){
     const img = document.getElementById("topImage");
-    if(img.src.includes("63a2da455fe9183d07db9d79308cbefc.jpg")){
-        img.src = "95be2a461518ca4762917bb7c70588fa.jpg";
-    } else {
-        img.src = "63a2da455fe9183d07db9d79308cbefc.jpg";
-    }
-}
-</script>
-
-</body>
-</html>
+    if(img.src.includes("63a2da455fe
