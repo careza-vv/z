@@ -25,6 +25,7 @@ body{
     width:200px;
     display:block;
     margin:0 auto 20px auto;
+    cursor:pointer;
 }
 
 #text{
@@ -38,13 +39,19 @@ body{
 <body>
 
 <div class="container">
-<img src="63a2da455fe9183d07db9d79308cbefc.jpg" class="top-image">
+
+<img id="topImage"
+     src="63a2da455fe9183d07db9d79308cbefc.jpg"
+     class="top-image"
+     onclick="changeImage()">
+
 <div id="text"></div>
+
 </div>
 
-<!-- hidden youtube player -->
+<!-- YouTube music -->
 <iframe id="music" width="0" height="0"
-src="https://www.youtube.com/embed/1I7vPbthv0M?enablejsapi=1&loop=1&playlist=1I7vPbthv0M"
+src="https://www.youtube.com/embed/6fgav8cdhSY?loop=1&playlist=6fgav8cdhSY"
 frameborder="0" allow="autoplay">
 </iframe>
 
@@ -54,8 +61,6 @@ No matter the hard days or the challenges we face, you always choose to stay by 
 You are my joy, my peace, and my strength. Thank you for being you and for making me feel loved in a way I never imagined. I will always keep you in my heart and love you more every single day, Zachary.`;
 
 let i = 0;
-let started = false;
-
 function type(){
     if(i < message.length){
         document.getElementById("text").innerHTML += message.charAt(i);
@@ -64,15 +69,23 @@ function type(){
     }
 }
 
-function start(){
-    if(!started){
-        started = true;
-        document.getElementById("music").src += "&autoplay=1";
-        type();
+window.onload = type;
+
+function changeImage(){
+    const img = document.getElementById("topImage");
+    if(img.src.includes("63a2da455fe9183d07db9d79308cbefc.jpg")){
+        img.src = "95be2a461518ca4762917bb7c70588fa.jpg";
+    } else {
+        img.src = "63a2da455fe9183d07db9d79308cbefc.jpg";
     }
 }
 
-document.body.addEventListener("click", start);
+// start music after first click
+document.addEventListener("click", function(){
+    const music = document.getElementById("music");
+    music.src += "&autoplay=1";
+}, { once: true });
+
 </script>
 
 </body>
