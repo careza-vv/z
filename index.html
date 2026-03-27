@@ -6,7 +6,7 @@
 
 <style>
 body{
-    background:#e895b0;
+    background:#fff0f5;
     font-family: Georgia, serif;
     display:flex;
     justify-content:center;
@@ -19,6 +19,12 @@ body{
 .container{
     max-width:600px;
     padding:20px;
+    display:none;
+}
+
+.cover{
+    cursor:pointer;
+    font-size:22px;
 }
 
 .top-image{
@@ -33,8 +39,64 @@ body{
     line-height:1.8;
     white-space:pre-line;
 }
+</style>
+</head>
 
-.play-btn{
+<body>
+
+<div class="cover" onclick="openLetter()">
+Click to open 💌
+</div>
+
+<div class="container" id="main">
+
+<img id="topImage"
+     src="63a2da455fe9183d07db9d79308cbefc.jpg"
+     class="top-image"
+     onclick="changeImage()">
+
+<div id="text"></div>
+
+</div>
+
+<audio id="music" loop>
+<source src="The Ridleys - Someday (Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const message = `Thank you for loving me every single day. Every little thing you do, every kind gesture, makes me feel special and safe. I don’t always find the right words to tell you how much you mean to me, but I want you to know: your love lights up my life.
+No matter the hard days or the challenges we face, you always choose to stay by my side and support me. That makes me feel so lucky to have you. I promise to choose you too, to care for you, and to be there with you through everything, because nothing matters more to me than us.
+You are my joy, my peace, and my strength. Thank you for being you and for making me feel loved in a way I never imagined. I will always keep you in my heart and love you more every single day, Zachary.`;
+
+let i = 0;
+
+function type(){
+    if(i < message.length){
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 28);
+    }
+}
+
+function openLetter(){
+    document.querySelector(".cover").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.getElementById("music").play();
+    type();
+}
+
+function changeImage(){
+    const img = document.getElementById("topImage");
+    if(img.src.includes("63a2da455fe9183d07db9d79308cbefc.jpg")){
+        img.src = "95be2a461518ca4762917bb7c70588fa.jpg";
+    } else {
+        img.src = "63a2da455fe9183d07db9d79308cbefc.jpg";
+    }
+}
+</script>
+
+</body>
+</html>.play-btn{
     padding:10px 20px;
     border:none;
     background:#ffb6c1;
