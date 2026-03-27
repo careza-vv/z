@@ -33,12 +33,24 @@ body{
     line-height:1.8;
     white-space:pre-line;
 }
+
+.play-btn{
+    padding:10px 20px;
+    border:none;
+    background:#ffb6c1;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+    margin-bottom:15px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
+<button class="play-btn" onclick="playMusic()">Play music</button>
 
 <img id="topImage"
      src="63a2da455fe9183d07db9d79308cbefc.jpg"
@@ -49,11 +61,9 @@ body{
 
 </div>
 
-<!-- YouTube music -->
-<iframe id="music" width="0" height="0"
-src="https://www.youtube.com/embed/6fgav8cdhSY?loop=1&playlist=6fgav8cdhSY"
-frameborder="0" allow="autoplay">
-</iframe>
+<audio id="music" loop>
+<source src="The Ridleys - Someday (Lyrics).mp3" type="audio/mpeg">
+</audio>
 
 <script>
 const message = `Thank you for loving me every single day. Every little thing you do, every kind gesture, makes me feel special and safe. I don’t always find the right words to tell you how much you mean to me, but I want you to know: your love lights up my life.
@@ -80,12 +90,9 @@ function changeImage(){
     }
 }
 
-// start music after first click
-document.addEventListener("click", function(){
-    const music = document.getElementById("music");
-    music.src += "&autoplay=1";
-}, { once: true });
-
+function playMusic(){
+    document.getElementById("music").play();
+}
 </script>
 
 </body>
