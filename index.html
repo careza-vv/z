@@ -22,8 +22,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:30px;
-    cursor:pointer;
+    font-size:32px;
 }
 
 /* SECOND PAGE */
@@ -51,12 +50,10 @@ body{
 
 <body>
 
-<!-- FIRST PAGE -->
-<div id="cover" onclick="openLetter()">
+<div id="cover">
 Amor mío, Zachary
 </div>
 
-<!-- SECOND PAGE -->
 <div class="container" id="main">
 
 <img id="topImage"
@@ -78,6 +75,7 @@ No matter the hard days or the challenges we face, you always choose to stay by 
 You are my joy, my peace, and my strength. Thank you for being you and for making me feel loved in a way I never imagined. I will always keep you in my heart and love you more every single day, Zachary.`;
 
 let i = 0;
+let opened = false;
 
 function type(){
     if(i < message.length){
@@ -87,13 +85,26 @@ function type(){
     }
 }
 
-function openLetter(){
-    document.getElementById("cover").style.display="none";
-    document.getElementById("main").style.display="block";
-    document.getElementById("music").play();
-    type();
-}
-
 function changeImage(){
     const img = document.getElementById("topImage");
-    if(img.src.includes("63a2da455fe
+    if(img.src.includes("63a2da455fe9183d07db9d79308cbefc.jpg")){
+        img.src = "95be2a461518ca4762917bb7c70588fa.jpg";
+    } else {
+        img.src = "63a2da455fe9183d07db9d79308cbefc.jpg";
+    }
+}
+
+/* CLICK ANYWHERE */
+document.addEventListener("click", function(){
+    if(!opened){
+        opened = true;
+        document.getElementById("cover").style.display="none";
+        document.getElementById("main").style.display="block";
+        document.getElementById("music").play();
+        type();
+    }
+});
+</script>
+
+</body>
+</html>
